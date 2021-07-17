@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Npcs>
+
+	<Npc
+		Name="1_BasePlayerUnit"
+		PlayerControlled="true"
+		PlayerOwned="true"
+		>
+	</Npc>
+
+	<!-- WalkingMan Speed = 265
+		 ToonMan Speed = 230
+		 Zulf Speed = 180
+		 Zulf Speed = 200
+		 March'10 Speed = 230
+		 PAX10 Submission Speed = 230 -->
+	<Npc
+		Name="_PlayerUnit"
+		InheritFrom="1_BasePlayerUnit"
+		MoveGraphic="PlayerSprint"
+		WalkLegs="PlayerWalkLegs"
+		StrafeLegs="PlayerStrafeLegs"
+		PhaseInTimeMin="0.01"
+		PhaseInTimeMax="0.01"
+		Speed="280"
+		BackpedalSpeedModifier="0.34"
+		RotationSpeed="21600"
+		VisionRange="1000"
+		OnTouchdownWeapon="TouchdownSlam"
+		OnCounterWeapon="PlayerCounter"
+		OnRangedCounterWeapon="PlayerRangedCounter"
+		OnBlockWeapon="PlayerBlock"
+		OnRangedBlockWeapon="PlayerRangedBlock"
+		LastStandWeapon="PlayerLastStand"
+		IgnoreTargetCollision="false"
+		LootMagnetism="250.0"
+		ChargeFx="ShieldChargeFx"
+		ChargeRumble="0.125"
+		BlockFx="BlockSparks3"
+		FriendlyFx="null"
+		FallPenaltyFx="null"
+		ReloadingIcon="GUI\\Icons\\Icon_Reloading"
+		PowerShotIcon="GUI\\Icons\\Icon_PowerShot"
+		CounterIcon="GUI\\Icons\\Icon_Counter"
+		LevelUpIcon="GUI\\Icons\\Icon_LevelUp"
+		LivesIcon="GUI\\Icons\\Icon_Lives"
+		FullHealthIcon="GUI\\Shell\\tonic_dread_rum"
+		GuranteedCritIcon="GUI\\Shell\\tonic_werewhiskey"
+		DormantOnDeath="true"
+		LifeStealMinInterval="0.25"
+		OnDeathWeapon="PlayerDeath"
+		OnKillWeapon="PlayerOnKillWeapon"
+		OnHitWeapon="PlayerOnHitWeapon"
+		AnimToFireTouchdownWeapon="PlayerFlail"
+		BreathFx="ColdBreath"
+		BreathOffset="75"
+		>
+		<Thing
+			Graphic="PlayerIdle"
+			FidgetGraphic="PlayerFidget"
+			FlyingGraphic="PlayerFlail"
+			Grip="5.0"
+			FallSpeedMultiplier="1.0"
+			FallDamageFraction="0.15"
+			FallSound="Falling"
+			Width="104"
+			Height="64"
+			OverheadOffset="140"
+			OnTouchdownFxAnim="TouchdownDust"
+			TouchdownSound="Drop2"
+			TouchdownRumbleIntensity="0.4"
+			TouchdownRumbleDuration="0.15">
+			<Point X="0" Y="28"/>
+			<Point X="48" Y="0"/>
+			<Point X="0" Y="-28"/>
+			<Point X="-48" Y="0"/>
+		</Thing>
+		<Life
+			Health="51"
+			HealthRegen="0.0"
+			HealthRegenInterval="0.1"
+			MinHealthForRegen="2"
+			AllowRegenWhileDisabled="false"
+			Armor="0.0"
+			ArmorCoverage="360"
+			LowHealthThreshold="0.4"
+			DeathGraphic="PlayerDeath"
+			FallDeathAnimation="PlayerFallDeath"
+			DeathSound="PlayerDeath"
+			Decal="Decals\\Health_Circle_Medium"
+			OverPitDecal="Decals\\Dotted_Circle_Medium"
+			UseHealthMeter="true"
+			HealthMeterRed="1.0"
+			HealthMeterGreen="1.0"
+			HealthMeterBlue="1.0"
+			HealthMeterOpacity="0.0"
+			HealthMeterFalloffSpeed="0.38"
+			HitSound="MetalImpact"
+			MaxLives="2"
+			Material="PLAYER"
+			ShowHealNumbers="true"
+			ShowDamageNumbers="false"
+			ImmuneToDissolveDeath="true"
+			>
+		</Life>
+
+		<Upgrade Name="PlusHealth" Graphic="GUI\\Shell\\tonic_hearty_punch">
+			<Rank Cost="75" ValueChangeType="ADD" Health="10"/>
+		</Upgrade>
+		
+		<Upgrade Name="FullHealthCritBonus" Graphic="GUI\\Shell\\tonic_dread_rum">
+			<Rank Cost="125" ValueChangeType="ADD" FullHealthCritAddition="0.10"/>
+		</Upgrade>
+
+		<Upgrade Name="MagnetismAndObstacleDamage" Graphic="GUI\\Shell\\tonic_fetching_fizz">
+			<Rank Cost="50" ValueChangeType="MULTIPLY" LootMagnetism="2.0"/>
+		</Upgrade>
+		
+		<Upgrade Name="Jump" Graphic="GUI\\Shell\\tonic_hopscotch">
+			<Rank Cost="325" PickupWeapon="Jump"/>
+		</Upgrade>
+
+		<Upgrade Name="ExtraLives" Graphic="GUI\\Shell\\tonic_extra_lives">
+			<Rank Cost="325" ValueChangeType="ADD" MaxLives="1"/>
+		</Upgrade>
+
+		<Upgrade Name="PotionCapacityAndPotency" Graphic="GUI\\Shell\\tonic_bastion_bourbon">
+			<Rank Cost="300"/>
+		</Upgrade>
+
+		<Upgrade Name="LowHealthGuaranteesCrit" Graphic="GUI\\Shell\\tonic_werewhiskey">
+			<Rank Cost="350" ValueChangeType="ABSOLUTE" GuranteeCritHealthFraction="0.33"/>
+		</Upgrade>
+
+		<Upgrade Name="ImprovedTouchdown" Graphic="GUI\\Shell\\tonic_falling_malt">
+			<Rank Cost="200" ValueChangeType="ADD" FallDamageFraction="-0.14" TouchdownRumbleIntensity="-0.2"/>
+		</Upgrade>
+
+		<Upgrade Name="PlusCounterDamage" Graphic="GUI\\Shell\\tonic_lunkhead_liquor">
+			<Rank Cost="200"/>
+		</Upgrade>
+
+		<Upgrade Name="CounterHeal" Graphic="GUI\\Shell\\tonic_mender_mead">
+			<Rank Cost="250"/>
+		</Upgrade>
+
+		<Upgrade Name="StunImmunity" Graphic="GUI\\Shell\\tonic_cinderbrick_stout">
+			<Rank Cost="125"/>
+		</Upgrade>
+
+		<Upgrade Name="SpecialWeaponAmmo" Graphic="GUI\\Shell\\tonic_black_rye">
+			<Rank Cost="275" ValueChangeType="ADD"/>
+		</Upgrade>
+
+		<Upgrade Name="SpecialWeaponDamage" Graphic="GUI\\Shell\\tonic_whale_ale">
+			<Rank Cost="350" ValueChangeType="ADD"/>
+		</Upgrade>		
+		
+		<Upgrade Name="PlusArmor" Graphic="GUI\\Shell\\tonic_bull_brandy">
+			<Rank Cost="500" ValueChangeType="ADD" Armor="0.15"/>
+		</Upgrade>
+
+		<Upgrade Name="PlayerOnHitWeapon" Graphic="GUI\\Shell\\tonic_stabsinthe">
+			<Rank Cost="400" ValueChangeType="REPLACE_IF_NULL" OnHitWeapon="PlayerOnHitWeapon"/>
+		</Upgrade>
+
+		<Upgrade Name="FinalHitpointShield" Graphic="GUI\\Shell\\tonic_lifewine">
+			<Rank Cost="600" LastStandHealth="1"/>
+		</Upgrade>
+		
+		<Upgrade Name="OnKillBuff" Graphic="GUI\\Shell\\tonic_graver_gimlet">
+			<Rank Cost="750" ValueChangeType="REPLACE_IF_NULL" OnKillWeapon="PlayerOnKillWeapon"/>
+		</Upgrade>
+
+		<Upgrade Name="LifeSteal" Graphic="GUI\\Shell\\tonic_leech_aid">
+			<Rank Cost="1000" ValueChangeType="ABSOLUTE" LifeSteal="0.05"/>
+		</Upgrade>
+
+		<Upgrade Name="PlusAllCritMinusHealth" Graphic="GUI\\Shell\\tonic_doomshine">
+			<Rank Cost="1250" ValueChangeType="ADD" CritAddition="0.1" Health="-10"/>
+		</Upgrade>
+
+		<Upgrade Name="PlusDamageConstantDegen" Graphic="GUI\\Shell\\tonic_cham_pain">
+			<Rank Cost="1500" ValueChangeType="ADD" DamageOutputMultiplier="0.25" MaxLives="-1"/>
+		</Upgrade>
+
+		<!-- Leveling Upgrades -->
+
+		<Upgrade Name="Level_2">
+			<Rank ValueChangeType="ADD" Health="2"/>
+		</Upgrade>
+
+		<Upgrade Name="Level_3">
+			<Rank ValueChangeType="ADD" Health="2"/>
+		</Upgrade>
+
+		<Upgrade Name="Level_4">
+			<Rank ValueChangeType="ADD" Health="2"/>
+		</Upgrade>
+
+		<Upgrade Name="Level_5">
+			<Rank ValueChangeType="ADD" Health="2"/>
+		</Upgrade>
+
+		<Upgrade Name="Level_6">
+			<Rank ValueChangeType="ADD" Health="2"/>
+		</Upgrade>
+
+		<Upgrade Name="Level_7">
+			<Rank ValueChangeType="ADD" Health="2"/>
+		</Upgrade>
+
+		<Upgrade Name="Level_8">
+			<Rank ValueChangeType="ADD" Health="2"/>
+		</Upgrade>
+
+		<Upgrade Name="Level_9">
+			<Rank ValueChangeType="ADD" Health="2"/>
+		</Upgrade>
+
+		<Upgrade Name="Level_10">
+			<Rank ValueChangeType="ADD" Health="2"/>
+		</Upgrade>
+
+		<PlayerUnitData
+			GetUpAnim="PlayerGetUp"
+			PassOutAnim="PlayerPassedOut"
+			HardLandAnim="PlayerPassedOutB"
+			HardLandGetUpAnim="PlayerGetUpB"
+			OnDeathMusic="DeathRumbleSound"
+			OnLevelUpAnim="PlayerCheer"
+			OnLevelUpFxAnim="PlayerLevelUp"
+			OnLevelUpSound="LevelUp"
+			OnLevelUpWeapon="LevelUp"
+			OnUpgradesEquippedAnim="PlayerFlaskDrink"
+			>      
+		</PlayerUnitData>
+    
+	</Npc>
+
+	<Npc
+		Name="1_BaseTurret"
+		PlayerOwned="true">
+	</Npc>
+
+	<!-- PlayerSummonedLightMelee -->
+
+	<Npc
+		Name="PlayerSummonedLightMelee"
+		InheritFrom="1_BaseTurret"
+		DisplayInEditor="true"
+		Speed="350.0"
+		Flyer="true"
+		ScoreValue="0"
+		PhaseInTimeMin="1.06"
+		PhaseInTimeMax="1.06"
+		PhaseInGraphic="LightMelee_PhaseIn"
+		PhaseInFx="LightMelee_PhaseIn_Decal"
+		PhaseInSound="SquirtSpawn"
+		VisionRange="750"
+		RotationSpeed="440"
+		AlertFriendsOnDeathDistance="425"
+		SpawnFacingPlayer="false"
+		CollideWithUnits="false"
+		WobbleDistance="10.0"
+		WobbleSpeed="40.0"
+		NoWobbleWhileAttacking="true"
+		OnKillWeapon="PlayerOnKillWeapon"
+		OnHitWeapon="PlayerOnHitWeapon"
+		>
+		<Thing
+			Graphic="LightMelee_Idle"
+			OverheadOffset="120"
+			Grip="5.0"
+			OffsetZ="90"
+			Scale="0.80">
+			<Color Red="0.85" Green="0.64" Blue="0.15"/>
+			<Point X="0" Y="12"/>
+			<Point X="24" Y="0"/>
+			<Point X="0" Y="-12"/>
+			<Point X="-24" Y="0"/>
+		</Thing>
+		<Life
+			Health="21"
+			Armor="0.0"
+			HitGraphic="LightMelee_OnHit"
+			DeathAnimation="LightMelee_Death"
+			HitSound="GenericEnemyGettingHit"
+			DeathSound="SquirtDeath"
+			Decal="Decals\\Health_Circle_Tiny"
+			DamageDecal="null"
+			DeathShakeSpeed="150"
+			DeathShakeDistance="5"
+			Material="ORGANIC"
+			ShowHealNumbers="true"
+			>
+		</Life>
+		<Weapon Name="PlayerSummonedLightMeleeLunge"/>
+
+		<TargetAI
+			ThingSet="UNITS"
+			Allegiance="ENEMIES"
+			RequiresCanAttack="false"
+			TargetLock="true"
+			DamagedVisionRange="1000"
+			MaxDistance="750"
+			FlashOnAcquire="false"
+			TargetAcquiredSound="SquirtMove">
+			<SortType Heuristic="CLOSEST"/>
+		</TargetAI>
+		<MoveAI
+			Algorithm="RANDOM"
+			RandomTurnIntervalMin="1.0"
+			RandomTurnIntervalMax="4.0"
+			SpeedFraction="0.2"
+			TetherDistance="100"
+			>
+		</MoveAI>
+		<MoveAI
+			Algorithm="PATHFIND"
+			>
+		</MoveAI>
+		<AttackAI
+			Algorithm="ON_SIGHT"
+			MustCompleteAttack="true">
+		</AttackAI>
+
+		<Upgrade Name="PlusHealth" Graphic="GUI\\Shell\\tonic_hearty_punch">
+			<Rank Cost="75" ValueChangeType="ADD" Health="10"/>
+		</Upgrade>
+
+		<Upgrade Name="FullHealthCritBonus" Graphic="GUI\\Shell\\tonic_dread_rum">
+			<Rank Cost="125" ValueChangeType="ADD" FullHealthCritAddition="0.10"/>
+		</Upgrade>
+
+		<Upgrade Name="LifeSteal" Graphic="GUI\\Shell\\tonic_leech_aid">
+			<Rank Cost="300" ValueChangeType="ABSOLUTE" LifeSteal="0.1"/>
+		</Upgrade>
+
+		<Upgrade Name="PlusAllCritMinusHealth" Graphic="GUI\\Shell\\tonic_doomshine">
+			<Rank Cost="250" ValueChangeType="ADD" CritAddition="0.1" Health="-10"/>
+		</Upgrade>
+
+		<Upgrade Name="LowHealthGuaranteesCrit" Graphic="GUI\\Shell\\tonic_werewhiskey">
+			<Rank Cost="350" ValueChangeType="ABSOLUTE" GuranteeCritHealthFraction="0.33"/>
+		</Upgrade>
+
+		<Upgrade Name="PlusDamageConstantDegen" Graphic="GUI\\Shell\\tonic_cham_pain">
+			<Rank Cost="1000" ValueChangeType="ADD" DamageOutputMultiplier="0.25"/>
+		</Upgrade>
+
+		<Upgrade Name="FinalHitpointShield" Graphic="GUI\\Shell\\tonic_lifewine">
+			<Rank Cost="500" LastStandHealth="1"/>
+		</Upgrade>
+
+		<Upgrade Name="PlusArmor" Graphic="GUI\\Shell\\tonic_bull_brandy">
+			<Rank Cost="375" ValueChangeType="ADD" Armor="0.15"/>
+		</Upgrade>
+
+		<Upgrade Name="OnKillBuff" Graphic="GUI\\Shell\\tonic_graver_gimlet">
+			<Rank Cost="750" ValueChangeType="REPLACE_IF_NULL" OnKillWeapon="PlayerOnKillWeapon"/>
+		</Upgrade>
+
+		<Upgrade Name="PlayerOnHitWeapon" Graphic="GUI\\Shell\\tonic_stabsinthe">
+			<Rank Cost="500" ValueChangeType="REPLACE_IF_NULL" OnHitWeapon="PlayerOnHitWeapon"/>
+		</Upgrade>
+
+		<!-- Leveling Upgrades -->
+
+		<Upgrade Name="Level_2">
+			<Rank ValueChangeType="ADD" Health="4"/>
+		</Upgrade>
+
+		<Upgrade Name="Level_3">
+			<Rank ValueChangeType="ADD" Health="4"/>
+		</Upgrade>
+
+		<Upgrade Name="Level_4">
+			<Rank ValueChangeType="ADD" Health="4"/>
+		</Upgrade>
+
+		<Upgrade Name="Level_5">
+			<Rank ValueChangeType="ADD" Health="4"/>
+		</Upgrade>
+
+		<Upgrade Name="Level_6">
+			<Rank ValueChangeType="ADD" Health="4"/>
+		</Upgrade>
+
+		<Upgrade Name="Level_7">
+			<Rank ValueChangeType="ADD" Health="4"/>
+		</Upgrade>
+
+		<Upgrade Name="Level_8">
+			<Rank ValueChangeType="ADD" Health="4"/>
+		</Upgrade>
+
+		<Upgrade Name="Level_9">
+			<Rank ValueChangeType="ADD" Health="4"/>
+		</Upgrade>
+
+		<Upgrade Name="Level_10">
+			<Rank ValueChangeType="ADD" Health="4"/>
+		</Upgrade>
+		
+	</Npc>
+
+	<Npc
+		Name="PlayerDopplewalkDecoy"
+		InheritFrom="_PlayerUnit"
+		PlayerControlled="false"
+		Speed="0.0"
+		Flyer="false"
+		PhaseInTimeMin="0.3"
+		PhaseInTimeMax="0.3"
+		PhaseInGraphic="DecoyPhaseIn"
+		IgnoreTargetCollision="false"
+		CollideWithUnits="true"
+		DormantOnDeath="false"
+		ClearAI="true"
+		LootMagnetism="0.0"
+		OnDeathWeapon="null"
+		OnHitWeapon="null"
+		OnKillWeapon="null"
+		ClearUpgrades="true"
+		MoveGraphic="null"
+		WalkLegs="null"
+		StrafeLegs="null"
+		>
+		<Thing
+			Graphic="Decoy"
+			Grip="9999"
+			FidgetGraphic="null"
+			FlyingGraphic="null">
+			<Color Red="1.0" Green="1.0" Blue="1.0" Opacity="1.0"/>
+		</Thing>
+		<Life
+			Health="15"
+			HealthRegen="0.0"
+			HealthRegenInterval="0.0"
+			DeathAnimation="WoodDeath"
+			DeathGraphic="null"
+			DeathSound="WoodShatter"
+			ShowHealNumbers="false"
+			ShowDamageNumbers="true"
+			HitSound="GenericEnemyGettingHit"
+			Material="WOOD"
+			>
+		</Life>
+	</Npc>
+
+	<Npc
+		Name="PlayerDecoy_Challenge10"
+		InheritFrom="PlayerDopplewalkDecoy"
+		PlayerOwned="false"
+		PlayerControlled="false"
+		PhaseInTimeMin="0.1"
+		PhaseInTimeMax="0.1"
+		OnDeathWeapon="TurretDeath"
+		SpawnFacingPlayer="false">
+    <Thing
+      OverheadOffset="200">
+    </Thing>
+    <Life
+			Health="35"
+			OverPitDecal="null"
+			>
+		</Life>
+	</Npc>
+
+</Npcs>
