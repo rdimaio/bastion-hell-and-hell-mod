@@ -1,7 +1,7 @@
 # Bastion: Hell or Hell (one hit kill) config mod
 This config mod implements a "Hell or Hell" difficulty mode in Bastion, a 2011 game by Supergiant Games.
 
-Inspired by the ["Hell or Hell" mode in the Devil May Cry series](https://devilmaycry.fandom.com/wiki/Difficulty_Mode), in this difficulty mode:
+Based on the ["Hell or Hell" mode in the Devil May Cry series](https://devilmaycry.fandom.com/wiki/Difficulty_Mode), in this difficulty mode:
 - You die in one hit
 - Enemies retain their default HP
 
