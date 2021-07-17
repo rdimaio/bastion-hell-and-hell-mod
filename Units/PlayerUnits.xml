@@ -77,7 +77,7 @@
 			<Point X="-48" Y="0"/>
 		</Thing>
 		<Life
-			Health="51"
+			Health="1"
 			HealthRegen="0.0"
 			HealthRegenInterval="0.1"
 			MinHealthForRegen="2"
@@ -106,7 +106,7 @@
 		</Life>
 
 		<Upgrade Name="PlusHealth" Graphic="GUI\\Shell\\tonic_hearty_punch">
-			<Rank Cost="75" ValueChangeType="ADD" Health="10"/>
+			<Rank Cost="75" ValueChangeType="ADD" Health="0"/>
 		</Upgrade>
 		
 		<Upgrade Name="FullHealthCritBonus" Graphic="GUI\\Shell\\tonic_dread_rum">
@@ -188,39 +188,39 @@
 		<!-- Leveling Upgrades -->
 
 		<Upgrade Name="Level_2">
-			<Rank ValueChangeType="ADD" Health="2"/>
+			<Rank ValueChangeType="ADD" Health="0"/>
 		</Upgrade>
 
 		<Upgrade Name="Level_3">
-			<Rank ValueChangeType="ADD" Health="2"/>
+			<Rank ValueChangeType="ADD" Health="0"/>
 		</Upgrade>
 
 		<Upgrade Name="Level_4">
-			<Rank ValueChangeType="ADD" Health="2"/>
+			<Rank ValueChangeType="ADD" Health="0"/>
 		</Upgrade>
 
 		<Upgrade Name="Level_5">
-			<Rank ValueChangeType="ADD" Health="2"/>
+			<Rank ValueChangeType="ADD" Health="0"/>
 		</Upgrade>
 
 		<Upgrade Name="Level_6">
-			<Rank ValueChangeType="ADD" Health="2"/>
+			<Rank ValueChangeType="ADD" Health="0"/>
 		</Upgrade>
 
 		<Upgrade Name="Level_7">
-			<Rank ValueChangeType="ADD" Health="2"/>
+			<Rank ValueChangeType="ADD" Health="0"/>
 		</Upgrade>
 
 		<Upgrade Name="Level_8">
-			<Rank ValueChangeType="ADD" Health="2"/>
+			<Rank ValueChangeType="ADD" Health="0"/>
 		</Upgrade>
 
 		<Upgrade Name="Level_9">
-			<Rank ValueChangeType="ADD" Health="2"/>
+			<Rank ValueChangeType="ADD" Health="0"/>
 		</Upgrade>
 
 		<Upgrade Name="Level_10">
-			<Rank ValueChangeType="ADD" Health="2"/>
+			<Rank ValueChangeType="ADD" Health="0"/>
 		</Upgrade>
 
 		<PlayerUnitData
