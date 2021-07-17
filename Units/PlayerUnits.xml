@@ -178,7 +178,7 @@
 		</Upgrade>
 
 		<Upgrade Name="PlusAllCritMinusHealth" Graphic="GUI\\Shell\\tonic_doomshine">
-			<Rank Cost="1250" ValueChangeType="ADD" CritAddition="0.1" Health="-10"/>
+			<Rank Cost="1250" ValueChangeType="ADD" CritAddition="0.1" Health="0"/>
 		</Upgrade>
 
 		<Upgrade Name="PlusDamageConstantDegen" Graphic="GUI\\Shell\\tonic_cham_pain">
